@@ -53,6 +53,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\BallController.cs" />
      <Compile Include="Assets\MenuUiManager.cs" />
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>D:/UnityCourse/TappyBallCourse/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
