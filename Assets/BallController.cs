@@ -7,12 +7,14 @@ public class BallController : MonoBehaviour {
     Rigidbody2D rb; // Reference to the Rigidbody attached to the ball
     public float upForce; // Amount of force to upwards
     bool started; // tells that the game is started or not
+    bool gameOver; // tells that the game is over or not
 
     // Use this for initialization
     void Start () {
 
         rb = GetComponent<Rigidbody2D> ();
         started = false; // Initially the game is not started
+        gameOver = false; // Initially the game is not over
 	}
 	
 	// Update is called once per frame
@@ -38,4 +40,19 @@ public class BallController : MonoBehaviour {
             }
         }
 	}
+
+    void OnTriggerEnter2D (Collider2D col) {
+
+        if (col.gameObject.tag == "Pipe") { // if the colliding object is Pipe
+
+            // Make the game over
+            gameOver = true;
+        }
+
+        if (col.gameObject.tag == "ScoreChecker" && !gameOver) { // if the colliding object is that box collider and the game is not over
+
+            // increment the score
+            ScoreManager.instance.IncrementScore ();
+        }
+    }
 }
