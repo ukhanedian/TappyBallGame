@@ -4,10 +4,20 @@ using UnityEngine;
 
 public class BallController : MonoBehaviour {
 
+    public static BallController instance;
+
     Rigidbody2D rb; // Reference to the Rigidbody attached to the ball
     public float upForce; // Amount of force to upwards
     bool started; // tells that the game is started or not
-    bool gameOver; // tells that the game is over or not
+    public bool gameOver; // tells that the game is over or not
+
+    void Awake () {
+
+        if (instance == null) {
+
+            instance = this;
+        }
+    }
 
     // Use this for initialization
     void Start () {

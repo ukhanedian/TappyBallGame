@@ -5,7 +5,7 @@ using UnityEngine;
 public class ScoreManager : MonoBehaviour {
 
     public static ScoreManager instance; // Singleton
-    int score;
+    public int score;
 
     void Awake () {
 
@@ -42,10 +42,13 @@ public class ScoreManager : MonoBehaviour {
             // Check if your current score is greater than your highscore
             if (score > PlayerPrefs.GetInt ("HighScore")) {
 
+                // Set your highscore by your score
                 PlayerPrefs.SetInt ("HighScore", score);
             }
         }
         else {
+
+            // Set your highscore by your score
             PlayerPrefs.SetInt ("HighScore", score);
         }
     }
