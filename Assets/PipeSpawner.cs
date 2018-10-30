@@ -11,7 +11,7 @@ public class PipeSpawner : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		
-        StartSpawnPipes();
+        //StartSpawningPipes();
 	}
 	
 	// Update is called once per frame
@@ -24,7 +24,7 @@ public class PipeSpawner : MonoBehaviour {
         CancelInvoke ("SpawnPipe");
     }
 
-    public void StartSpawnPipes () { // Repeatedly calls SpawnPipe() function
+    public void StartSpawningPipes () { // Repeatedly calls SpawnPipe() function
 
         InvokeRepeating ("SpawnPipe", 0.2f, SpawnTime);
     }

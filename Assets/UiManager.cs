@@ -54,8 +54,9 @@ public class UiManager : MonoBehaviour {
     // function for gameOver animation
     public void GameOver () {
 
-        highScoreText.text = PlayerPrefs.GetInt ("Highscore").ToString();
-        gameOverPanel.SetActive (true);
+        gameOverText.SetActive (true); // enables Game Over Text
+        highScoreText.text = PlayerPrefs.GetInt ("Highscore").ToString(); // displays highscore
+        gameOverPanel.SetActive (true); // enables Game Over Panel
     }
 
     // function for Replay button

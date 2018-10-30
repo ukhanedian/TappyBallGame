@@ -36,6 +36,7 @@ public class BallController : MonoBehaviour {
 
                 started = true; // Make the game start
                 rb.isKinematic = false; // Uncheck the isKinematic property
+                GameManager.instance.GameStart (); // Start the game from GameManager
             }
         }
         else { // if our game has started
@@ -51,12 +52,21 @@ public class BallController : MonoBehaviour {
         }
 	}
 
+    void OnCollisionEnter2D (Collision2D col) { // On every collision
+
+        gameOver = true;
+        GameManager.instance.GameOver ();
+    }
+
     void OnTriggerEnter2D (Collider2D col) {
 
-        if (col.gameObject.tag == "Pipe") { // if the colliding object is Pipe
+        if (col.gameObject.tag == "Pipe" && !gameOver) { // if the colliding object is Pipe and the game is not over
 
-            // Make the game over
+            // Make the game over happen
             gameOver = true;
+
+            // call the GameOver() function from GameManager
+            GameManager.instance.GameOver ();
         }
 
         if (col.gameObject.tag == "ScoreChecker" && !gameOver) { // if the colliding object is that box collider and the game is not over

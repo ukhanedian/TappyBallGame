@@ -24,15 +24,15 @@ public class PipeController : MonoBehaviour {
     // A function will switch direction between up and down
     void SwitchUpDown () {
 
-        upDownSpeed = -upDownSpeed; // changes the direction
-        rb.velocity = new Vector2 (-speed, upDownSpeed);
+        //upDownSpeed = -upDownSpeed; // changes the direction
+        rb.velocity = new Vector2 (-speed, 0);
     }
 
     // A function that will move our pipe in the x direction
     void MovePipe () {
 
         // Add velocity to the pipe
-        rb.velocity = new Vector2 (-speed, upDownSpeed);
+        rb.velocity = new Vector2 (-speed, 0);
     }
 
     void OnTriggerEnter2D (Collider2D col) {
